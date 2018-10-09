@@ -1,6 +1,8 @@
 package yazzyyas.studentportal;
 
-public class Portal {
+import java.io.Serializable;
+
+public class Portal implements Serializable {
     private String name;
     private String url;
 

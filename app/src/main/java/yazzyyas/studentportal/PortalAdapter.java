@@ -3,6 +3,7 @@ package yazzyyas.studentportal;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class PortalAdapter extends RecyclerView.Adapter<PortalAdapter.PortalViewHolder> {
+public class PortalAdapter extends RecyclerView.Adapter<PortalViewHolder> {
+
     private Context context;
     public List<Portal> PortalList;
 
@@ -30,7 +32,7 @@ public class PortalAdapter extends RecyclerView.Adapter<PortalAdapter.PortalView
     public void onBindViewHolder(@NonNull PortalViewHolder holder, int position) {
 
         final Portal portal = PortalList.get(position);
-        holder.portalName.setText(portal.getName());
+        holder.portal_name_TV.setText(portal.getName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +41,6 @@ public class PortalAdapter extends RecyclerView.Adapter<PortalAdapter.PortalView
                 context.startActivity(intent);
             }
         });
-
     }
 
     @Override
@@ -49,11 +50,10 @@ public class PortalAdapter extends RecyclerView.Adapter<PortalAdapter.PortalView
 }
 
 class PortalViewHolder extends RecyclerView.ViewHolder {
-    public TextView portalName;
+    public TextView portal_name_TV;
 
     public PortalViewHolder(View itemView) {
         super(itemView);
-
-        portalName = itemView.findViewById(R.id.PortalTextView);
+        portal_name_TV = itemView.findViewById(R.id.PortalTextView);
     }
 }

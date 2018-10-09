@@ -30,13 +30,15 @@
         android:text="Title" />
 
     <EditText
+        android:id="@+id/titleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/AddPortalBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 </android.support.constraint.ConstraintLayout>
