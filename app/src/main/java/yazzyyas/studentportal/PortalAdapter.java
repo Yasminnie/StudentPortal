@@ -6,12 +6,11 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
-public class PortalAdapter {
+public class PortalAdapter extends RecyclerView.Adapter<PortalAdapter.PortalViewHolder> {
     private Context context;
     public List<Portal> PortalList;
 
@@ -20,12 +19,11 @@ public class PortalAdapter {
         this.PortalList = listPortalObject;
     }
 
-
     @NonNull
     @Override
     public PortalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_cell,parent,false);
-        return new PortalObjectViewHolder(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_cell, parent, false);
+        return new PortalViewHolder(view);
     }
 
     @Override
@@ -50,30 +48,12 @@ public class PortalAdapter {
     }
 }
 
-class PortalViewHolder extends RecyclerView.ViewHolder  {
-
+class PortalViewHolder extends RecyclerView.ViewHolder {
     public TextView portalName;
 
     public PortalViewHolder(View itemView) {
         super(itemView);
 
-        portalName = itemView.findViewById(R.id.PortalName);
+        portalName = itemView.findViewById(R.id.PortalTextView);
     }
-
-
 }
-
-//class GeoObjectViewHolder extends RecyclerView.ViewHolder {
-//
-//    public TextView geoName;
-//    public ImageView geoImage;
-//    public View view;
-//
-//    public GeoObjectViewHolder(View itemView) {
-//        super(itemView);
-//        geoImage = itemView.findViewById(R.id.geoImageView);
-//        view = itemView;
-//    }
-//}
-//}
-
