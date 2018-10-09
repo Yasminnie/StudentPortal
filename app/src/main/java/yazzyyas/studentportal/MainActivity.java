@@ -17,7 +17,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.AddPortalBtn);
+    FloatingActionButton fab;
     public List<Portal> Portals = new ArrayList<>();
     Portal portal;
 
@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         getIntent().getStringExtra("portal");
         Portals.add(new Portal("VLO", "http://www.google.com"));
 
-        RecyclerView mPortalRecyclerView = findViewById(R.id.recyclerView);
+        RecyclerView portalRecyclerView = findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager mLayoutManager = new StaggeredGridLayoutManager(3, LinearLayoutManager.VERTICAL);
 
-        mPortalRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+        portalRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
             @Override
             public void onTouchEvent(RecyclerView rv, MotionEvent e) {
                 System.out.println("wooehooee");
@@ -50,10 +50,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mPortalRecyclerView.setLayoutManager(mLayoutManager);
+        portalRecyclerView.setLayoutManager(mLayoutManager);
         PortalAdapter mAdapter = new PortalAdapter(this, Portals);
-        mPortalRecyclerView.setAdapter(mAdapter);
+        portalRecyclerView.setAdapter(mAdapter);
 
+        fab = findViewById(R.id.AddPortalBtn);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,5 +73,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 }
